@@ -1,0 +1,15 @@
+  <div class="col-xs-12 col-md-12">
+    <div class="card-product">
+      <%= link_to("", user_path(user.id), class:"card-link")  %>
+      <div class="card-product-infos">
+        <h2><%= user.name %> </h2>
+        <p>Contact: <%= user.email%> - <%= user.mobile%> </p>
+      </div>
+     <% if user.photo.attached? %>
+          <%= cl_image_tag user.photo, class: "avatar-large" %>
+        <% else %>
+          <%= image_tag user.avatar_url, class: "avatar-large" %>
+      <% end %>
+    </div>
+  </div>
+
