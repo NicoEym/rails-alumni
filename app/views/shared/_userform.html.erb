@@ -1,0 +1,22 @@
+<div class="log-form overflow col-xs-12 col-md-4">
+  <% if current_page?(controller: 'users', action: 'new')  %>
+      <h2>Nouveau sauveteur:</h2>
+  <% else %>
+      <h2>Modifier profil:</h2>
+  <% end %>
+
+
+    <%= simple_form_for [@user]  do |f| %>
+
+
+      <h5><u>Diplômes:</u></h5>
+      <%= f.input :name, label: "BNSSA validé ?" %>
+      <%= f.input :description, label: "PSE1 validé ?" %>
+      <%= f.input :pse2, label: "PSE2 validé ?" %>
+      <%= f.input :photo, label: "Photo:" %>
+
+
+      <%= f.submit "Valider les informations", class: "btn btn-lg btn-primary col-xs-9 col-md-12" %>
+    <% end %>
+
+</div>
