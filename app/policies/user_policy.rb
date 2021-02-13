@@ -5,9 +5,6 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    @user.admin?
-  end
 
   def update?
     @user.admin?
