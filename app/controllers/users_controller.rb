@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-
   before_action :set_user, only: [:edit, :update]
+  before_action :check_if_complete, only: [:show, :index]
 
   def index
     @user = current_user
@@ -27,5 +27,11 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
     authorize @user
+  end
+
+  def check_if_complete
+    unless current_user.is_profile_complete? == true
+      edit
+    end
   end
 end
