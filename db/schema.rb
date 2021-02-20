@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_012826) do
+ActiveRecord::Schema.define(version: 2021_02_20_231327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 2021_02_17_012826) do
     t.string "profile"
     t.text "description"
     t.boolean "is_profile_complete?", default: false, null: false
+    t.integer "start_year_prepa"
+    t.string "contact_details"
+    t.string "sector"
+    t.text "school_description"
+    t.text "personal_path"
+    t.text "project"
+    t.text "memories"
+    t.text "availability_to_help"
+    t.string "link_network"
+    t.text "occupation"
+    t.text "hobbies"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

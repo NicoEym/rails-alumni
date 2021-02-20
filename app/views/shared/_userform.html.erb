@@ -1,20 +1,25 @@
 <div class="log-form overflow col-xs-12 col-md-4">
   <% if current_page?(controller: 'users', action: 'new')  %>
-      <h2>Nouveau sauveteur:</h2>
+      <h2>Ton profil:</h2>
   <% else %>
       <h2>Modifier profil:</h2>
   <% end %>
 
 
     <%= simple_form_for [@user]  do |f| %>
-
-
       <h5><u>Diplômes:</u></h5>
-      <%= f.input :name, label: "BNSSA validé ?" %>
-      <%= f.input :description, label: "PSE1 validé ?" %>
-      <%= f.input :pse2, label: "PSE2 validé ?" %>
+      <%= f.input :name, label: "Quel est ton prénom?" %>
+      <%= f.input :start_year_prepa, label: "En quelle année es tu rentré en prépa?" %>
+      <%= f.input :contact_details, label: "Comment te contacter?" %>
+      <%= f.input :sector, label: "Quel est ton secteur d'activité?" %>
+      <%= f.input :occupation, label: "Qu'est ce que tu fais dans ta vie?" %>
+      <%= f.input :hobbies, label: "Qu'est ce que t'animes?" %>
+      <%= f.input :school_description, label: "Dis nous en plus sur l'école que tu as intégré" %>
+      <%= f.input :personal_path, label: "Quel est ton parcours?" %>
+      <%= f.input :memories, label: "Un souvenir sur la prépa?" %>
+      <%= f.input :availability_to_help, label: "Les préparationnaires peuvent te contacter pour?" %>
+      <%= f.input :link_network, label: "Un lien vers linked in?" %>
       <%= f.input :photo, label: "Photo:" %>
-
 
       <%= f.submit "Valider les informations", class: "btn btn-lg btn-primary col-xs-9 col-md-12" %>
     <% end %>
