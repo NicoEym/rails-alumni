@@ -9,12 +9,13 @@
     <%= simple_form_for [@user]  do |f| %>
       <h5><u>Diplômes:</u></h5>
       <%= f.input :name, label: "Quel est ton prénom?" %>
-      <%= f.input :start_year_prepa, label: "En quelle année es tu rentré en prépa?" %>
+      <%= f.input :start_year_prepa, label: "En quelle année es tu rentré en prépa?", collection: 1990..2021 %>
       <%= f.input :contact_details, label: "Comment te contacter?" %>
-      <%= f.input :sector, label: "Quel est ton secteur d'activité?" %>
+      <%= f.input :sector, label: "Quel est ton secteur d'activité?", collection: ["Banque", "Marketing", "Cinema"] %>
+      <%= f.input :country, label: "Où vis tu?" %>
       <%= f.input :occupation, label: "Qu'est ce que tu fais dans ta vie?" %>
       <%= f.input :hobbies, label: "Qu'est ce que t'animes?" %>
-      <%= f.input :school_description, label: "Dis nous en plus sur l'école que tu as intégré" %>
+      <%= f.input :school_description, label: "Dis nous en plus sur l'école que tu as intégrée" %>
       <%= f.input :personal_path, label: "Quel est ton parcours?" %>
       <%= f.input :memories, label: "Un souvenir sur la prépa?" %>
       <%= f.input :availability_to_help, label: "Les préparationnaires peuvent te contacter pour?" %>
