@@ -1,4 +1,8 @@
+<% i = 1 %>
 <% @users.each do |user| %>
+  <% unless i > 69 %>
+    <%  i += 1 %>
+  <% end %>
   <div class="col-xs-12 col-md-4">
     <div class="card-product">
       <%= link_to("", user_path(user.id), class:"card-link")  %>
@@ -10,7 +14,7 @@
      <% if user.photo.attached? %>
           <%= cl_image_tag user.photo, class: "avatar-large" %>
         <% else %>
-          <%= image_tag "https://i.pravatar.cc/150?img=65", class: "avatar-large" %>
+          <%= image_tag "https://i.pravatar.cc/150?img=#{i}", class: "avatar-large" %>
       <% end %>
     </div>
   </div>
