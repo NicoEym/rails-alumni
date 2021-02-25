@@ -1,0 +1,75 @@
+
+  <div class="container">
+    <div>
+      <div class="row justify-center">
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo, class: "avatar-show" %>
+        <% else %>
+          <%= image_tag "https://i.pravatar.cc/150?img=1", class: "avatar-show" %>
+        <% end %>
+      </div>
+      <div class="row justify-center">
+        <h2><%= @user.name %></h2>
+      </div>
+
+    </div>
+    <br>
+
+    <div>
+      <h2><b>Contact:</b></h2>
+      <h4><%= @user.contact_details %></h4>
+      <h4><i class="fab fa-linkedin"></i> <%= link_to("Profil Linkedin",@user.link_network) %></h4>
+    </div>
+
+
+    <div>
+      <h2><b>Secteur d'activitée:</b></h2>
+      <h4><%= @user.sector %></h4>
+    </div>
+
+    <div>
+      <h2><b>Ce que je fais aujourd'hui:</b></h2>
+      <h4 class="text-justify"><%= @user.occupation %></h4>
+    </div>
+
+    <div>
+      <h2><b>Ce qui m'anime:</b></h2>
+      <h4 class="text-justify"><%= @user.hobbies %></h4>
+    </div>
+
+    <div>
+      <h2><b>L'école que j'ai intégrée:</b></h2>
+      <h4 class="text-justify"><%= @user.school_description %></h4>
+    </div>
+
+    <div>
+      <h2><b>Mon parcours:</b></h2>
+      <h4 class="text-justify"><%= @user.personal_path %></h4>
+    </div>
+
+    <div>
+      <h2><b>Ce que je voulais faire quand j'étai en prépa:</b></h2>
+      <h4 class="text-justify"><%= @user.personal_path %></h4>
+    </div>
+
+    <div>
+      <h2><b>Un souvenir marquant sur la prépa:</b></h2>
+      <h4 class="text-justify"><%= @user.memories %></h4>
+    </div>
+
+  <div>
+    <% if policy(@user).edit? %>
+        <%= link_to raw('<button type="button" class="btn btn-secondary">Modifier mes informations personnelles</button>'), edit_user_path(@user) %>
+        <%= link_to raw('<button type="button" class="btn btn-secondary">Modifier mot de passe</button>'), edit_user_registration_path(@user) %>
+    <% end %>
+      <% if policy(@user).destroy? %>
+          <%= link_to raw('<button type="button" class="btn btn-danger">Supprimer le profil</button>'), user_path(@user), method: :delete %>
+      <% end %>
+      <br>
+
+
+
+
+
+    </div>
+  </div>
