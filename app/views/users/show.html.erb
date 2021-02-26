@@ -15,11 +15,7 @@
     </div>
     <br>
 
-    <div>
-      <h2><b>Contact:</b></h2>
-      <h4><%= @user.contact_details %></h4>
-      <h4><i class="fab fa-linkedin"></i> <%= link_to("Profil Linkedin",@user.link_network) %></h4>
-    </div>
+
 
 
     <div>
@@ -55,6 +51,12 @@
     <div>
       <h2><b>Un souvenir marquant sur la prépa:</b></h2>
       <h4 class="text-justify"><%= @user.memories %></h4>
+    </div>
+
+     <div>
+      <h2><b>Contact:</b></h2>
+      <h4><%= @user.contact_details %></h4>
+      <h4><i class="fab fa-linkedin"></i> <%= link_to("Profil Linkedin",@user.link_network) %></h4>
     </div>
 
   <div>
