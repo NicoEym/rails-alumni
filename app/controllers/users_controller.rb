@@ -17,9 +17,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.approved = true
-    @user.save
-    redirect_to users_path
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
   end
 
   private
@@ -33,5 +35,10 @@ class UsersController < ApplicationController
     unless current_user.is_profile_complete? == true
       edit
     end
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :start_year_prepa, :contact_details, :occupation, :personal_path, :hobbies,
+                                  :school_description, :memories, :link_network, :photo)
   end
 end

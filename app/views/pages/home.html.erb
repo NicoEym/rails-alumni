@@ -4,10 +4,31 @@
       <h1>CIV Alumni</h1>
       <p>Civ Alumni, le réseau des Anciens du CIV</p>
       <div>
-        <div class="button-box">
-          <%= link_to("Se connecter", new_user_session_path, class:"btn-outline")  %>
-          <%= link_to("S'inscrire", new_user_registration_path, class:"btn-outline")  %>
+
+
+       <% if user_signed_in? %>
+
+        <div>
+            <div class="button-box">
+              <%= link_to "Voir les Alumni", users_path, class:"btn-outline blue-civ" %>
+            </div >
+
         </div>
+
+      <% else %>
+
+        <div>
+          <div class="button-box">
+            <%= link_to("Se connecter", new_user_session_path, class:"btn-outline blue-civ")  %>
+          </div >
+         <div class="button-box">
+            <%= link_to("S'inscrire", new_user_registration_path, class:"btn-outline blue-civ")  %>
+          </div >
+        </div>
+
+      <% end %>
+
+
       </div>
     </div>
   </div>

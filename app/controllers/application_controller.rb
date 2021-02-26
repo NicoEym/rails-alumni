@@ -13,21 +13,23 @@ class ApplicationController < ActionController::Base
   #   flash[:alert] = "You are not authorized to perform this action."
   #   redirect_to(root_path)
   # end
-  # def after_sign_up_path_for(resource)
-  #   if current_user.is_profile_complete?
-  #     "/users/"# <- Path you want to redirect the user to.
-  #   else
-  #     "/users/edit"
-  #   end
-  # end
+  def after_sign_up_path_for(resource)
+    "/users/"
+    # if current_user.is_profile_complete?
+    #   "/users/"# <- Path you want to redirect the user to.
+    # else
+    #   "/users/edit"
+    # end
+  end
 
-  # def after_sign_in_path_for(resource)
-  #   if current_user.is_profile_complete?
-  #     "/users/"# <- Path you want to redirect the user to.
-  #   else
-  #     "/users/edit"
-  #   end
-  # end
+  def after_sign_in_path_for(resource)
+    "/users/"
+    # if current_user.is_profile_complete?
+    #   "/users/"# <- Path you want to redirect the user to.
+    # else
+    #   "/users/edit"
+    # end
+  end
 
   private
 

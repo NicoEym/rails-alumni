@@ -39,6 +39,16 @@ a { color: inherit;
   }
 }
 
+.blue-civ {
+  background-color: #69a4c4;
+  color: white;
+  &:hover {
+    background-color: #458BB0;
+    color: white;
+  }
+}
+
+
 .white-color {
   color: white!important;
 }
