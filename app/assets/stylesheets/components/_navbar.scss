@@ -2,12 +2,13 @@
   justify-content: space-between;
   background: #69a4c4;
   color: white;
+  height: 5em;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-lewagon .navbar-brand a i {
   width: 40px;
 }
