@@ -3,7 +3,7 @@
     <div>
       <div class="row justify-center">
         <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo, class: "avatar-show" %>
+          <%= cl_image_tag @user.photo.key, class: "avatar-show" %>
         <% else %>
           <%= image_tag "https://i.pravatar.cc/150?img=1", class: "avatar-show" %>
         <% end %>
