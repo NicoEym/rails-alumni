@@ -3,6 +3,8 @@ require 'csv'
 require 'rubygems'
 
 
+User.delete_all
+
 user = User.new(
 
   name:  "AdminCIV",
@@ -19,6 +21,7 @@ puts "Creating admin"
 csv_options = { col_sep: ';', quote_char: '"', headers: :first_row }
 filesresponses    = 'db/csv/responses.csv'
 
+
 CSV.foreach(filesresponses, csv_options) do |row|
 
   User.create(name: row['Ton prénom'], start_year_prepa: row["Ton année d'entrée en prépa"],
@@ -34,7 +37,8 @@ CSV.foreach(filesresponses, csv_options) do |row|
       link_network: row["Un lien vers ton compte Linkedin ou autre (Behance, Viadeo, que sais-je) ?"],
       admin: false, profile: "Alumni",
       password:  'AlumniCIV',
-      password_confirmation: 'AlumniCIV')
+      password_confirmation: 'AlumniCIV',
+      pravatar_number: rand(1..70))
 
       puts "Creating #{row['Ton prénom']}"
 
