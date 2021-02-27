@@ -20,7 +20,7 @@
       <%= f.input :memories, label: "Un souvenir sur la prépa?" %>
       <%= f.input :availability_to_help, label: "Les préparationnaires peuvent te contacter pour?" %>
       <%= f.input :link_network, label: "Un lien vers linked in?" %>
-      <%= f.input :photo, label: "Photo:" %>
+      <%= f.input :photo, as: :file, label: "Photo de profil:" %>
 
       <%= f.submit "Valider les informations", class: "btn btn-lg blue-civ col-xs-9 col-md-12" %>
     <% end %>

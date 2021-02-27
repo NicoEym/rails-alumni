@@ -12,7 +12,7 @@
         <p>Contact: <%= user.email%></p>
       </div>
      <% if user.photo.attached? %>
-          <%= cl_image_tag user.photo, class: "avatar-large" %>
+          <%= cl_image_tag user.photo.key, class: "avatar-large" %>
         <% else %>
           <%= image_tag "https://i.pravatar.cc/150?img=#{i}", class: "avatar-large" %>
       <% end %>
