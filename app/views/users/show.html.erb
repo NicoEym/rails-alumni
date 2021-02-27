@@ -5,7 +5,7 @@
         <% if @user.photo.attached? %>
           <%= cl_image_tag @user.photo.key, class: "avatar-show" %>
         <% else %>
-          <%= image_tag "https://i.pravatar.cc/150?img=1", class: "avatar-show" %>
+          <%= image_tag "https://i.pravatar.cc/150?img=#{@user.pravatar_number}", class: "avatar-show" %>
         <% end %>
       </div>
       <div class="row justify-center">
@@ -47,7 +47,7 @@
     </div>
 
     <div>
-      <h2><b>Ce que je voulais faire quand j'étai en prépa:</b></h2>
+      <h2><b>Ce que je voulais faire quand j'étais en prépa:</b></h2>
       <h4 class="text-justify"><%= @user.personal_path %></h4>
     </div>
 
