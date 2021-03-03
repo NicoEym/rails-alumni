@@ -3,20 +3,20 @@ require 'csv'
 require 'rubygems'
 
 
-User.delete_all
+# User.delete_all
 
-user = User.new(
+# user = User.new(
 
-  name:  "AdminCIV",
-  email: "adminCIV@gmail.com",
-  # avatar_url: "https://i.pravatar.cc/150?img=65",
-  admin: true,
-  password:  'adminCIV',
-  password_confirmation: 'adminCIV',
-)
+#   name:  "AdminCIV",
+#   email: "adminCIV@gmail.com",
+#   # avatar_url: "https://i.pravatar.cc/150?img=65",
+#   admin: true,
+#   password:  'adminCIV',
+#   password_confirmation: 'adminCIV',
+# )
 
-user.save!
-puts "Creating admin"
+# user.save!
+# puts "Creating admin"
 
 csv_options = { col_sep: ';', quote_char: '"', headers: :first_row }
 filesresponses    = 'db/csv/responses.csv'
@@ -24,6 +24,9 @@ filesresponses    = 'db/csv/responses.csv'
 
 CSV.foreach(filesresponses, csv_options) do |row|
 
+  test_existing_user = User.find_by(email: row["Email"])
+
+  if test_existing_user.nil?
   User.create(name: row['Ton prénom'], start_year_prepa: row["Ton année d'entrée en prépa"],
       email: row["Email"],
       contact_details: row["Comment te contacter"],
@@ -41,7 +44,9 @@ CSV.foreach(filesresponses, csv_options) do |row|
       pravatar_number: rand(1..70))
 
       puts "Creating #{row['Ton prénom']}"
-
+    else
+      puts "User #{test_existing_user.name} already exists"
+    end
 end
 
 
