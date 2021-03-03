@@ -12,7 +12,11 @@
             <div class="button-box">
               <%= link_to "Voir les Alumni", users_path, class:"btn-outline blue-civ" %>
             </div >
-
+             <% if current_user.is_an_alumni?  %>
+              <div class="button-box">
+                <%= link_to "Mon profil", user_path(current_user.id), class:"btn-outline blue-civ" %>
+              </div >
+           <% end %>
         </div>
 
       <% else %>

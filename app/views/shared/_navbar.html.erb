@@ -14,11 +14,17 @@
         <li class="nav-item active">
           <%= link_to "Voir les alumni", users_path, class: "nav-link white-color " %>
         </li>
+
+
+        <% if current_user.is_an_alumni?  %>
+            <li class="nav-item active">
+              <%= link_to "Mon profil", user_path(current_user.id), class: "nav-link white-color " %>
+            </li>
+        <% end %>
+
         <li class="nav-item active">
           <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link white-color " %>
         </li>
-
-
 
       <% else %>
         <li class="nav-item">
