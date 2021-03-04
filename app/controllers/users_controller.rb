@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     @user = current_user
     authorize @user
     @users = policy_scope(User)
+    @sectors = User.select(:sector).map(&:sector).uniq
+    @years = User.select(:start_year_prepa).map(&:start_year_prepa).uniq
+
     # if params[:approved] == "false"
     #   @users = User.where(approved: false)
     # else

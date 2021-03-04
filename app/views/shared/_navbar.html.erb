@@ -15,7 +15,6 @@
           <%= link_to "Voir les alumni", users_path, class: "nav-link white-color " %>
         </li>
 
-
         <% if current_user.is_an_alumni?  %>
             <li class="nav-item active">
               <%= link_to "Mon profil", user_path(current_user.id), class: "nav-link white-color " %>
