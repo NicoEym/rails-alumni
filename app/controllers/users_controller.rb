@@ -6,8 +6,8 @@ class UsersController < ApplicationController
     @user = current_user
     authorize @user
     @users = policy_scope(User)
-    @sectors = User.select(:sector).map(&:sector).uniq
-    @years = User.select(:start_year_prepa).map(&:start_year_prepa).uniq
+
+
 
     # if params[:approved] == "false"
     #   @users = User.where(approved: false)
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     end
   end
 
+
   private
 
   def set_user
@@ -43,5 +44,10 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :start_year_prepa, :contact_details, :occupation, :personal_path, :hobbies,
                                   :school_description, :memories, :link_network, :photo)
+  end
+
+
+  def search_params
+    params.require(:users).permit(:start_year_prepa, :sector)
   end
 end

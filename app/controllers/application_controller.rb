@@ -1,6 +1,22 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
+  before_action :set_year_list
+  before_action :set_sector_list
+
+  def set_year_list
+    @years = User.select(:start_year_prepa).map(&:start_year_prepa).uniq
+    @years = @years.reject { |item| item.nil? }
+    @years =@years.sort.reverse
+  end
+
+  def set_sector_list
+    @sectors = User.select(:sector).map(&:sector).uniq
+    @sectors = @sectors.reject { |item| item.nil? }
+    @sectors =@sectors.sort
+  end
+
+
   include Pundit
 
   # Pundit: white-list approach.

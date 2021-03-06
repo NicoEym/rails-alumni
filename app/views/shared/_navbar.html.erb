@@ -15,6 +15,28 @@
           <%= link_to "Voir les alumni", users_path, class: "nav-link white-color " %>
         </li>
 
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  class="white-color ">
+          Chercher par année
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% @years.each do |year| %>
+          <a class="dropdown-item" href="#"><%= year %></a>
+          <% end %>
+        </div>
+      </li>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  class="white-color ">
+          Chercher par secteur
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% @sectors.each do |sector| %>
+          <a class="dropdown-item" href="#"><%= sector %></a>
+          <% end %>
+        </div>
+      </li>
         <% if current_user.is_an_alumni?  %>
             <li class="nav-item active">
               <%= link_to "Mon profil", user_path(current_user.id), class: "nav-link white-color " %>
