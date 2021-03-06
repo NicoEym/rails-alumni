@@ -7,7 +7,14 @@ class UsersController < ApplicationController
     authorize @user
     @users = policy_scope(User)
 
+    year_param = params[:start_year_prepa]
+    sector_param = params[:sector]
 
+    puts year_param.nil?
+
+    @users = @users.where(start_year_prepa: year_param) if !year_param.nil?
+
+    @users = @users.where(sector: sector_param) if !sector_param.nil?
 
     # if params[:approved] == "false"
     #   @users = User.where(approved: false)
