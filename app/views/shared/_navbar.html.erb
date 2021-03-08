@@ -19,7 +19,7 @@
         <a class="nav-link dropdown-toggle white-color" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Chercher par année
         </a>
-        <div class="dropdown-menu clear-blue-civ" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu clear-blue-civ overflow" aria-labelledby="navbarDropdown">
           <% @years.each do |year| %>
             <%= link_to year, users_path(:start_year_prepa => year), class: "nav-link white-color" %>
           <% end %>
@@ -30,7 +30,7 @@
         <a class="nav-link dropdown-toggle white-color" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Chercher par secteur
         </a>
-        <div class="dropdown-menu clear-blue-civ" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu clear-blue-civ overflow" aria-labelledby="navbarDropdown">
           <% @sectors.each do |sector| %>
             <%= link_to sector, users_path(:sector => sector), class: "nav-link white-color" %>
           <% end %>
