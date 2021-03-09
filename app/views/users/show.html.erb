@@ -22,7 +22,7 @@
     </div>
 
     <div>
-      <h2><b>Secteur d'activitée:</b></h2>
+      <h2><b>Secteur d'activité:</b></h2>
       <h4><%= @user.sector %></h4>
     </div>
 
@@ -67,10 +67,11 @@
         <%= link_to raw('<button type="button" class="btn btn-secondary">Modifier mes informations personnelles</button>'), edit_user_path(@user) %>
         <%= link_to raw('<button type="button" class="btn btn-secondary">Modifier mon mot de passe</button>'), edit_user_registration_path(@user) %>
     <% end %>
-      <% if policy(@user).destroy? %>
+      <% if policy(@user).delete? %>
           <%= link_to raw('<button type="button" class="btn btn-danger">Supprimer le profil</button>'), user_path(@user), method: :delete %>
       <% end %>
       <br>
+
 
 
 

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :check_if_complete, only: [:show, :index]
 
   def index
@@ -32,6 +32,14 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+
+  def destroy
+
+    @user.destroy
+
+    redirect_to users_path
   end
 
 
