@@ -9,7 +9,15 @@ class UserPolicy < ApplicationPolicy
     user_profile_or_user_is_admin?
   end
 
+  def destroy?
+    user_is_admin?
+  end
+
   def user_profile_or_user_is_admin?
     @user.admin? || @record == @user
+  end
+
+  def user_is_admin?
+    @user.admin?
   end
 end
